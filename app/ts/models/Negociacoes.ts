@@ -7,6 +7,7 @@ export class Negociacoes {
   }
 
   paraArray(): Negociacao[]{
-    return this._negociacoes;
+    //sendo [].concat(this._negociacoes), não tipa o array fazendo dar erro e se tornando algo que pode ser qualquer tipo
+    return ([] as Negociacao[]).concat(this._negociacoes);
   }
 }

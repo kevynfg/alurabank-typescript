@@ -30,5 +30,16 @@ export class NegociacaoController {
         //este método chama outro método para renderizar a table
       this._negociacoesView.update(this._negociacoes);
       this._mensagemView.update('Negociação adicionada com sucesso!');
+
+
+      
+      //Quando se faz a verificação com IF de uma seleção do "parentElement", o typescript permite continuar
+      //Não tornando a variável undefined
+      // const elCartao: HTMLDivElement = <HTMLDivElement>document.querySelector("#table_1")
+      // let elPaiDoPai;
+      // if(elCartao.parentElement) {
+      //   elPaiDoPai = elCartao.parentElement.parentElement
+      // }
+      // console.log(elPaiDoPai)
   }
 }
