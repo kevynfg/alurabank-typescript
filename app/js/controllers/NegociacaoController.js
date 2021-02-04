@@ -1,18 +1,23 @@
 class NegociacaoController {
     constructor() {
+        this._negociacoes = new Negociacoes();
+        this._negociacoesView = new NegociacoesView('#negociacoesView');
+        this._mensagemView = new MensagemView('#mensagemView');
         this._inputData = document.querySelector('#data');
         this._inputQuantidade = document.querySelector('#quantidade');
         this._inputValor = document.querySelector('#valor');
-        this._negociacoes = new Negociacoes();
+        this._negociacoesView.update(this._negociacoes);
     }
     adiciona(evento) {
         evento.preventDefault();
-        const negociacao = new Negaociacao(
+        const negociacao = new Negociacao(
         //Usa uma expressão regular para trocar tudo que tem '-' por ','
         new Date(this._inputData.value.replace(/-/g, ',')), parseInt(this._inputQuantidade.value), parseFloat(this._inputValor.value));
         this._negociacoes.adiciona(negociacao);
-        this._negociacoes.paraArray().forEach((item) => {
-            console.log(item);
-        });
+        //Insere na página a view da table logo que iniciar
+        //mando o array criado para ser renderizado
+        //este método chama outro método para renderizar a table
+        this._negociacoesView.update(this._negociacoes);
+        this._mensagemView.update('Negociação adicionada com sucesso!');
     }
 }

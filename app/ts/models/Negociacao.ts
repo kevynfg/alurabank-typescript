@@ -1,7 +1,7 @@
-class Negaociacao {
+class Negociacao {
   //Estou setando como propriedades onde somente
-  //Métodos da própria classe podem alterar
-
+  //Métodos da própria classe podem alterar com private
+  
   constructor(private _data: Date, private _quantidade: number, private _valor: number) {
     //Usar '_' antes do valor da variável torna ela restrita
     //para alterações fora dos métodos da própria classe
