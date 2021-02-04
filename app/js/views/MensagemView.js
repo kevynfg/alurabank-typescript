@@ -11,7 +11,7 @@ System.register(["../views/index"], function (exports_1, context_1) {
         execute: function () {
             MensagemView = class MensagemView extends index_1.View {
                 template(model) {
-                    return `<p class="alert alert-info">Negociação adicionada com sucesso!</p>`;
+                    return `<p class="alert alert-info">${model}</p>`;
                 }
             };
             exports_1("MensagemView", MensagemView);
