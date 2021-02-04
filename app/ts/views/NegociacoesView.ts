@@ -1,5 +1,6 @@
-namespace Views {
-  export class NegociacoesView extends Views.View<Negociacoes> {
+import {Negociacoes} from '../models/index'
+import {View} from '../views/index'
+export class NegociacoesView extends View<Negociacoes> {
 
     template(model: Negociacoes): string{
 
@@ -31,8 +32,9 @@ namespace Views {
         
         <tfoot></tfoot>
       </table>
+      <script>alert('oi')</script>
       `;
 
     }
   }
-}
+

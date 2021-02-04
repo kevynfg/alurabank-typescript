@@ -7,7 +7,8 @@
       "noEmitOnError": true,
       "noImplicitAny": true,
       //remove comentários quando subir para produção
-      "removeComments": true
+      "removeComments": true,
+      "module": "System"
   },
   //Qual arquivo ele deve levar em consideração
   //na hora de compilar, ex: app/ts/**/* captura todos arquivos dentro da pasta ts e subpastas
