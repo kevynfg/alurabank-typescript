@@ -5,7 +5,9 @@
       "outDir": "app/js",
       //Não permite criar o arquivo JS com erro
       "noEmitOnError": true,
-      "noImplicitAny": true
+      "noImplicitAny": true,
+      //remove comentários quando subir para produção
+      "removeComments": true
   },
   //Qual arquivo ele deve levar em consideração
   //na hora de compilar, ex: app/ts/**/* captura todos arquivos dentro da pasta ts e subpastas

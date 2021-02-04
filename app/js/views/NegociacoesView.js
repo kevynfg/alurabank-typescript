@@ -20,9 +20,7 @@ class NegociacoesView extends View {
               <td>${negociacao.volume}</td>
             </tr>
             
-          `
-        //o join é para tirar as vírgulas em cada array que gera
-        ).join('')}
+          `).join('')}
       </tbody>
 
       <tfoot></tfoot>
