@@ -11,6 +11,8 @@ export class NegociacaoService {
             )}
 }
 
+//ResponseHandler serve para criar uma interface que sirva
+//de function que trabalha com código assincrono
 export interface ResponseHandler {
 
     (res: Response): Response

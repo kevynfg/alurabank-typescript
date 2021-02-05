@@ -72,29 +72,31 @@ export class NegociacaoController {
   }
 
   @throttle()
-  importaDados(){
-    this._service.obterNegociacoes(res => {
+
+  async importaDados(){
+
+    try {
+      const negociacoesParaImportar = await this._service.obterNegociacoes(res => {
         if(res.ok) {
           return res;
         } else {
           throw new Error(res.statusText) 
         }
       })
-      .then(negociacoesParaImportar => { 
-      const negociacoesJaImportadas = this._negociacoes.paraArray();
-        negociacoesParaImportar
-        .filter(negociacao => !negociacoesJaImportadas
-          .some(jaImportada => negociacao
-            .isEqual(jaImportada)))
-        .forEach(negociacao => this._negociacoes
-        .adiciona(negociacao))
-        
-        this._negociacoesView.update(this._negociacoes)
-        
-      }).catch(err => {
-        debugger
-        this._mensagemView.update(err.message)
-      })
+    const negociacoesJaImportadas = this._negociacoes.paraArray();
+      
+    negociacoesParaImportar
+      .filter(negociacao => !negociacoesJaImportadas
+        .some(jaImportada => negociacao
+          .isEqual(jaImportada)))
+      .forEach(negociacao => this._negociacoes
+      .adiciona(negociacao))
+      
+      this._negociacoesView.update(this._negociacoes)
+    } catch(err) {
+      this._mensagemView.update(err.message)
+    }
+    
   }
 }
 enum DiaDaSemana {
