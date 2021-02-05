@@ -20,8 +20,8 @@ export abstract class View<T> {
     
     let template = this.template(model)
     if(this._escapar)
-      //expressão regular para remover a tag script de dentro do template
-      template = template.replace(/<script>[\s\S]*?<\/script>/g, '')
+      template = template.replace(/<script>[\s\S]*?<\/script>/g, '') //expressão regular para remover a tag script de dentro do template
+    
     this._elemento.html(template)
 
 
