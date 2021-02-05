@@ -13,9 +13,11 @@ export abstract class View<T> {
     this._elemento = $(selector)
     this._escapar = escapar
   }
+  
   //o dev pode selecionar se recebe a resposta em segundos ou ms, passando true, deixando null ou false
   @logarTempoDeExecucao(true)
   update(model: T) {
+    
     let template = this.template(model)
     if(this._escapar)
       //expressão regular para remover a tag script de dentro do template

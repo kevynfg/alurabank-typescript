@@ -7,7 +7,7 @@ import {throttle} from '../helpers/decorators/index';
 import {NegociacaoService} from '../service/index'
 import {Imprime} from '../helpers/utils'
 export class NegociacaoController {
-
+    
     @domInject('#data')
     private _inputData: JQuery;
 
@@ -29,7 +29,7 @@ export class NegociacaoController {
       this._negociacoesView.update(this._negociacoes)
     }
 
-
+    
   //@logarTempoDeExecucao()
   @throttle()
   adiciona() {

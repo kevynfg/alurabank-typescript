@@ -1,11 +1,9 @@
 export function logarTempoDeExecucao(emSegundos: boolean = false) {
- 
-    //propertyKey como segundo parâmetro é para pegar o nome do método como string no qual o decorator está sendo colocado
-    //propertyDescriptor é o parâmetro que sabe tudo sobre o método que foi chamado
+    
+    //propertyKey pega o nome do método
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
     
-    //descriptor.value é o método no qual o decorator foi chamado
-    //para testar, deve-se guardar o método original antes
+    //descriptor.value é o método no qual o decorator foi chamado deve-se guardar o método original antes
     const metodoOriginal = descriptor.value;
 
     //...args recebe X parâmetros que o método original vai conter, atribuindo para 'any[]' um array que pode vir qualquer
@@ -16,7 +14,6 @@ export function logarTempoDeExecucao(emSegundos: boolean = false) {
       let divisor = 1;
       if(emSegundos) {
         unidade = 'segundos'
-        //se está em segundos, deve-se dividir o ms por 1000 e obter segundos
         divisor = 1000
       }
 
