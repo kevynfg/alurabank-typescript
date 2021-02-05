@@ -57,7 +57,6 @@ export class NegociacaoController {
     this._mensagemView.update('Negociação adicionada com sucesso!')
 
 
-
       //Quando se faz a verificação com IF de uma seleção do "parentElement", o typescript permite continuar
       //Não tornando a variável undefined
       // const elCartao: HTMLDivElement = <HTMLDivElement>document.querySelector("#table_1")
@@ -74,7 +73,6 @@ export class NegociacaoController {
 
   @throttle()
   importaDados(){
-    
     this._service.obterNegociacoes(res => {
         if(res.ok) {
           return res;
@@ -92,6 +90,10 @@ export class NegociacaoController {
         .adiciona(negociacao))
         
         this._negociacoesView.update(this._negociacoes)
+        
+      }).catch(err => {
+        debugger
+        this._mensagemView.update(err.message)
       })
   }
 }

@@ -5,11 +5,11 @@
       "outDir": "app/js",
       //Não permite criar o arquivo JS com erro
       "noEmitOnError": true,
-      "noImplicitAny": false,
+      "noImplicitAny": true,
       //remove comentários quando subir para produção
       "removeComments": true,
       "module": "System",
-      "strictNullChecks": false,
+      "strictNullChecks": true,
       "experimentalDecorators": true
   },
   //Qual arquivo ele deve levar em consideração

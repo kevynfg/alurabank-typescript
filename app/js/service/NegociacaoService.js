@@ -15,7 +15,7 @@ System.register(["../models/index"], function (exports_1, context_1) {
                         .then(res => handler(res))
                         .then(res => res.json())
                         .then((dados) => dados.map(dado => new index_1.Negociacao(new Date(), dado.vezes, dado.montante)))
-                        .catch(err => { throw new Error(err.message); });
+                        .catch(err => { throw new Error('Não foi possível buscar os dados.'); });
                 }
             };
             exports_1("NegociacaoService", NegociacaoService);

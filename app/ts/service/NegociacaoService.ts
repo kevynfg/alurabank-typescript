@@ -7,7 +7,7 @@ export class NegociacaoService {
             .then(res => handler(res))
             .then(res => res.json())
             .then((dados: NegociacaoParcial[]) => dados.map(dado => new Negociacao(new Date(), dado.vezes, dado.montante)))
-            .catch(err => {throw new Error(err.message)}          
+            .catch(err => {throw new Error('Não foi possível buscar os dados.')}          
             )}
 }
 
