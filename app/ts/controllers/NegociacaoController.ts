@@ -5,6 +5,7 @@ import {domInject} from '../helpers/decorators/index';
 import {NegociacaoParcial} from '../models/index';
 import {throttle} from '../helpers/decorators/index';
 import {NegociacaoService} from '../service/index'
+import {Imprime} from '../helpers/utils'
 export class NegociacaoController {
 
     @domInject('#data')
@@ -28,10 +29,10 @@ export class NegociacaoController {
       this._negociacoesView.update(this._negociacoes)
     }
 
+
   //@logarTempoDeExecucao()
   @throttle()
   adiciona() {
-
 
     let data = new Date(this._inputData.val().replace(/-/g, ','))
     
@@ -43,20 +44,18 @@ export class NegociacaoController {
 
     const negociacao = new Negociacao(
       //Usa uma expressão regular para trocar tudo que tem '-' por ','
-      new Date(data),
-       parseInt(this._inputQuantidade.val()),
-        parseFloat(this._inputValor.val())
-        )
-        
-        
-    this._negociacoes.adiciona(negociacao)
-      //Insere na página a view da table logo que iniciar
-      //mando o array criado para ser renderizado
-      //este método chama outro método para renderizar a table
-    this._negociacoesView.update(this._negociacoes);
-    this._mensagemView.update('Negociação adicionada com sucesso!');
+      new Date(data), parseInt(this._inputQuantidade.val()), parseFloat(this._inputValor.val()))
+     
+      
+    this._negociacoes.adiciona(negociacao)   
+    Imprime(negociacao, this._negociacoes)
 
-  
+    //Insere na página a view da table logo que iniciar
+    //mando o array criado para ser renderizado
+    //este método chama outro método para renderizar a table
+    this._negociacoesView.update(this._negociacoes)
+    this._mensagemView.update('Negociação adicionada com sucesso!')
+
 
 
       //Quando se faz a verificação com IF de uma seleção do "parentElement", o typescript permite continuar
