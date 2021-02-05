@@ -1,5 +1,5 @@
-import {Imprimivel} from './Imprimivel'
-export class Negociacao implements Imprimivel { //Implements obriga a classe usar o método herdado 
+import {MeuObjeto} from './MeuObjeto'
+export class Negociacao implements MeuObjeto<Negociacao> { //Implements obriga a classe usar o método herdado 
   
   constructor(readonly data: Date, readonly quantidade: number, readonly valor: number) {
     //Usar '_' antes do valor da variável torna ela restrita
@@ -23,4 +23,10 @@ export class Negociacao implements Imprimivel { //Implements obriga a classe usa
       `
     )
   }
+
+  isEqual(negociacao: Negociacao): boolean{
+    return this.data.getDate() == negociacao.data.getDate()
+      && this.data.getMonth() == negociacao.data.getMonth()
+        && this.data.getFullYear() == negociacao.data.getFullYear()
+      }
 }
